@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class BubbleSortTest {
@@ -38,6 +37,14 @@ public class BubbleSortTest {
         List<String> result = bubbleSort.sort(names);
         Assertions.assertThat(result)
                 .isEqualTo(sortedNames);
+    }
+
+    @Test
+    void testInputParameterNotChanged() {
+        List<String> copy = new ArrayList<>(names);
+        List<String> result = bubbleSort.sort(names);
+        Assertions.assertThat(names).isEqualTo(copy);
+        Assertions.assertThat(1).isEqualTo(2);
     }
 
 }

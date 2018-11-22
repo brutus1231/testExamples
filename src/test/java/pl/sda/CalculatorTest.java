@@ -40,7 +40,7 @@ public class CalculatorTest {
     @Test
     void testAdd() {
         //given
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         //when
         Integer addResult = calculator.add(3, 5);
         Integer result = 8;
@@ -51,7 +51,7 @@ public class CalculatorTest {
     @Test
     void testMinusNumbers() {
         //given
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         //when
         Integer addResult = calculator.add(-3, -5);
         //then
@@ -62,7 +62,7 @@ public class CalculatorTest {
 //    @Disabled
     @Test
     void testReturn10WhenSubtract10AndZero(){
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         Integer subtractResult = calculator.subtract(10, 0);
         assertTrue(subtractResult == 10);
     }
@@ -71,7 +71,7 @@ public class CalculatorTest {
     @MethodSource("addNumberProvider")
     void testParametrizedAdd(Integer first, Integer second,
                              Integer result) {
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         Integer addResult = calculator.add(first, second);
         assertEquals(result, addResult);
         Assertions.assertNotNull(addResult);
@@ -89,7 +89,7 @@ public class CalculatorTest {
     @ValueSource(ints = {1,2,5})
     void testValueSourceAdd(Integer number){
         //given
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         //when
         Integer addResult = calculator.add(number, number);
         Integer result = 2 * number;
@@ -100,7 +100,7 @@ public class CalculatorTest {
     @Test
     void testShouldThrowDivideByZeroException() {
         //given
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(null);
         //when
         //then
         Assertions.assertThrows(DivideByZeroDenominatorException.class,
